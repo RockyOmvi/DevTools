@@ -5,8 +5,11 @@
   "main": "build.js",
   "scripts": {
     "build": "node build.js",
-    "serve": "npx -y http-server ./"
+    "serve": "npx -y http-server ./",
+    "deploy": "wrangler deploy",
+    "preview": "wrangler dev"
   },
-  "dependencies": {},
-  "devDependencies": {}
+  "devDependencies": {
+    "wrangler": "^4.110.0"
+  }
 }
