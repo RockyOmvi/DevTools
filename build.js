@@ -5,7 +5,8 @@ const pagesConfig = require('./src/pages.js');
 const rootDir = __dirname;
 const srcDir = path.join(rootDir, 'src');
 const assetsSrcDir = path.join(srcDir, 'assets');
-const assetsDestDir = path.join(rootDir, 'assets');
+const distDir = path.join(rootDir, 'dist');
+const assetsDestDir = path.join(distDir, 'assets');
 
 // Utility to ensure directory exists
 function ensureDir(dirPath) {
@@ -57,8 +58,9 @@ function build() {
   console.log('Starting DevToolHubs static site build...');
 
   // 1. Ensure output folders exist
+  ensureDir(distDir);
   ensureDir(assetsDestDir);
-  ensureDir(path.join(rootDir, 'tools'));
+  ensureDir(path.join(distDir, 'tools'));
 
   // 2. Load templates
   const layoutTemplate = fs.readFileSync(path.join(srcDir, 'templates', 'layout.html'), 'utf8');
@@ -82,9 +84,9 @@ function build() {
       .replace(/{{MAIN_CONTENT}}/g, page.content)
       .replace(/{{PAGE_SCRIPTS}}/g, '');
 
-    const destPath = path.join(rootDir, page.filename);
+    const destPath = path.join(distDir, page.filename);
     fs.writeFileSync(destPath, html, 'utf8');
-    console.log(`- Created: ${page.filename}`);
+    console.log(`- Created: dist/${page.filename}`);
   });
 
   // 4. Compile Tool Pages
@@ -118,9 +120,9 @@ function build() {
       .replace(/{{MAIN_CONTENT}}/g, toolHtml)
       .replace(/{{PAGE_SCRIPTS}}/g, scriptTag);
 
-    const destPath = path.join(rootDir, tool.filename);
+    const destPath = path.join(distDir, tool.filename);
     fs.writeFileSync(destPath, html, 'utf8');
-    console.log(`- Created: ${tool.filename}`);
+    console.log(`- Created: dist/${tool.filename}`);
   });
 
   // 5. Copy assets
@@ -129,8 +131,12 @@ function build() {
 
   // Create a placeholder favicon.png to avoid broken link console errors
   // We can write a tiny 1x1 transparent png or simple icon bytes
-  const faviconPath = path.join(rootDir, 'favicon.png');
-  if (!fs.existsSync(faviconPath)) {
+  const faviconPath = path.join(distDir, 'favicon.png');
+  const localFavicon = path.join(rootDir, 'favicon.png');
+  if (fs.existsSync(localFavicon)) {
+    fs.copyFileSync(localFavicon, faviconPath);
+    console.log('- Copied user favicon.png to dist/');
+  } else if (!fs.existsSync(faviconPath)) {
     // 1x1 Transparent PNG Base64
     const base64Png = 'iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=';
     fs.writeFileSync(faviconPath, Buffer.from(base64Png, 'base64'));
@@ -146,8 +152,8 @@ Allow: /
 
 Sitemap: https://devtoolhubs.com/sitemap.xml
 `;
-  fs.writeFileSync(path.join(rootDir, 'robots.txt'), robotsTxt, 'utf8');
-  console.log('- Created: robots.txt');
+  fs.writeFileSync(path.join(distDir, 'robots.txt'), robotsTxt, 'utf8');
+  console.log('- Created: dist/robots.txt');
 
   // sitemap.xml
   let sitemapXml = `<?xml version="1.0" encoding="UTF-8"?>
@@ -178,8 +184,8 @@ Sitemap: https://devtoolhubs.com/sitemap.xml
   });
 
   sitemapXml += `</urlset>`;
-  fs.writeFileSync(path.join(rootDir, 'sitemap.xml'), sitemapXml, 'utf8');
-  console.log('- Created: sitemap.xml');
+  fs.writeFileSync(path.join(distDir, 'sitemap.xml'), sitemapXml, 'utf8');
+  console.log('- Created: dist/sitemap.xml');
 
   console.log('Build completed successfully!');
 }
