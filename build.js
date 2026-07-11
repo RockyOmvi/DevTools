@@ -143,9 +143,14 @@ function build() {
     console.log('- Created: placeholder favicon.png');
   }
 
-  // 6. Generate robots.txt & sitemap.xml
-  console.log('Generating robots.txt & sitemap.xml...');
+  // 6. Generate robots.txt, sitemap.xml & ads.txt
+  console.log('Generating robots.txt, sitemap.xml & ads.txt...');
   
+  // ads.txt
+  const adsTxt = `google.com, pub-2528737901889485, DIRECT, f08c47fec0942fa0`;
+  fs.writeFileSync(path.join(distDir, 'ads.txt'), adsTxt, 'utf8');
+  console.log('- Created: dist/ads.txt');
+
   // robots.txt
   const robotsTxt = `User-agent: *
 Allow: /
