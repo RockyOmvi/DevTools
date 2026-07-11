@@ -54,7 +54,7 @@ function generateBreadcrumbsHTML(breadcrumbs) {
 }
 
 function build() {
-  console.log('Starting DevTools Hub static site build...');
+  console.log('Starting DevToolHubs static site build...');
 
   // 1. Ensure output folders exist
   ensureDir(assetsDestDir);
@@ -144,7 +144,7 @@ function build() {
   const robotsTxt = `User-agent: *
 Allow: /
 
-Sitemap: https://devtoolshub.local/sitemap.xml
+Sitemap: https://devtoolhubs.com/sitemap.xml
 `;
   fs.writeFileSync(path.join(rootDir, 'robots.txt'), robotsTxt, 'utf8');
   console.log('- Created: robots.txt');
@@ -160,7 +160,7 @@ Sitemap: https://devtoolshub.local/sitemap.xml
     if (page.filename === '404.html') return;
     const urlPath = page.filename === 'index.html' ? '' : page.filename;
     sitemapXml += `  <url>
-    <loc>https://devtoolshub.local/${urlPath}</loc>
+    <loc>https://devtoolhubs.com/${urlPath}</loc>
     <lastmod>2026-07-12</lastmod>
     <changefreq>weekly</changefreq>
     <priority>${page.filename === 'index.html' ? '1.0' : '0.7'}</priority>
@@ -170,7 +170,7 @@ Sitemap: https://devtoolshub.local/sitemap.xml
   // Add tools
   pagesConfig.tools.forEach(tool => {
     sitemapXml += `  <url>
-    <loc>https://devtoolshub.local/${tool.filename}</loc>
+    <loc>https://devtoolhubs.com/${tool.filename}</loc>
     <lastmod>2026-07-12</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>

@@ -13,7 +13,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const outputBody = document.getElementById('outputBody');
 
   const sampleJSON = {
-    "name": "DevTools Hub",
+    "name": "DevToolHubs",
     "version": "1.0.0",
     "description": "Collection of handy developer tools",
     "features": [

@@ -3,9 +3,9 @@ module.exports = {
   general: [
     {
       filename: 'index.html',
-      metaTitle: 'DevTools Hub - Free All-In-One Developer Utilities',
+      metaTitle: 'DevToolHubs - Free All-In-One Developer Utilities',
       metaDesc: 'A premium, browser-based suite of tools for web developers and engineers. Validate JSON, decode JWT, test Regex, hash passwords, compare diffs, test APIs and more.',
-      canonical: 'https://devtoolshub.local/',
+      canonical: 'https://devtoolhubs.com/',
       breadcrumbs: [],
       content: `
         <div class="home-hero">
@@ -229,25 +229,25 @@ module.exports = {
       schema: {
         "@context": "https://schema.org",
         "@type": "WebSite",
-        "name": "DevTools Hub",
-        "url": "https://devtoolshub.local/",
+        "name": "DevToolHubs",
+        "url": "https://devtoolhubs.com/",
         "potentialAction": {
           "@type": "SearchAction",
-          "target": "https://devtoolshub.local/sitemap.html?q={search_term_string}",
+          "target": "https://devtoolhubs.com/sitemap.html?q={search_term_string}",
           "query-input": "required name=search_term_string"
         }
       }
     },
     {
       filename: 'about.html',
-      metaTitle: 'About Us - DevTools Hub',
-      metaDesc: 'Learn more about DevTools Hub—a modern collection of online utilities built for developers, placing visual speed and user security above all.',
-      canonical: 'https://devtoolshub.local/about.html',
+      metaTitle: 'About Us - DevToolHubs',
+      metaDesc: 'Learn more about DevToolHubs—a modern collection of online utilities built for developers, placing visual speed and user security above all.',
+      canonical: 'https://devtoolhubs.com/about.html',
       breadcrumbs: [{ name: 'About Us', url: '/about.html' }],
       content: `
         <div class="static-page-container">
           <h1>About Us</h1>
-          <p>Welcome to <strong>DevTools Hub</strong>, a curated suite of high-performance developer utilities designed to streamline your daily workflows. We build utilities that we, as developers, need and use every single day.</p>
+          <p>Welcome to <strong>DevToolHubs</strong>, a curated suite of high-performance developer utilities designed to streamline your daily workflows. We build utilities that we, as developers, need and use every single day.</p>
           <h2>Our Core Principles</h2>
           <ul>
             <li><strong>Privacy & Security First:</strong> All operations are processed strictly client-side. Your inputs, tokens, API requests, and data stay inside your browser storage and never touch our servers.</li>
@@ -255,22 +255,22 @@ module.exports = {
             <li><strong>Beautiful Aesthetics:</strong> A functional developer tool should also be a pleasure to work with. Our application features premium Dark and Light interfaces with responsive components.</li>
           </ul>
           <h2>Meet the Team</h2>
-          <p>DevTools Hub is developed and maintained by a group of passionate software engineers who believe that high-quality, secure developer tooling should be free and accessible to everyone worldwide.</p>
+          <p>DevToolHubs is developed and maintained by a group of passionate software engineers who believe that high-quality, secure developer tooling should be free and accessible to everyone worldwide.</p>
         </div>
       `,
       schema: {
         "@context": "https://schema.org",
         "@type": "AboutPage",
         "name": "About Us",
-        "url": "https://devtoolshub.local/about.html",
+        "url": "https://devtoolhubs.com/about.html",
         "description": "Learn about our development values, privacy guarantees, and lightweight tool sets."
       }
     },
     {
       filename: 'contact.html',
-      metaTitle: 'Contact Us - DevTools Hub',
-      metaDesc: 'Reach out to the DevTools Hub support team for suggestions, bug reports, or feature requests. Complete our contact form or contact us directly.',
-      canonical: 'https://devtoolshub.local/contact.html',
+      metaTitle: 'Contact Us - DevToolHubs',
+      metaDesc: 'Reach out to the DevToolHubs support team for suggestions, bug reports, or feature requests. Complete our contact form or contact us directly.',
+      canonical: 'https://devtoolhubs.com/contact.html',
       breadcrumbs: [{ name: 'Contact Us', url: '/contact.html' }],
       content: `
         <div class="static-page-container">
@@ -310,21 +310,21 @@ module.exports = {
         "@context": "https://schema.org",
         "@type": "ContactPage",
         "name": "Contact Us",
-        "url": "https://devtoolshub.local/contact.html",
-        "description": "Contact DevTools Hub for tools updates, issues, or suggestions."
+        "url": "https://devtoolhubs.com/contact.html",
+        "description": "Contact DevToolHubs for tools updates, issues, or suggestions."
       }
     },
     {
       filename: 'privacy.html',
-      metaTitle: 'Privacy Policy - DevTools Hub',
+      metaTitle: 'Privacy Policy - DevToolHubs',
       metaDesc: 'Our Privacy Policy ensures your data stays fully inside your browser. We do not gather, store, or transmit your private text or tokens.',
-      canonical: 'https://devtoolshub.local/privacy.html',
+      canonical: 'https://devtoolhubs.com/privacy.html',
       breadcrumbs: [{ name: 'Privacy Policy', url: '/privacy.html' }],
       content: `
         <div class="static-page-container">
           <h1>Privacy Policy</h1>
           <p><strong>Last Updated: July 12, 2026</strong></p>
-          <p>At DevTools Hub, we take your privacy extremely seriously. Because our tools operate completely client-side in your web browser, we do not collect, process, or transmit your text inputs, files, tokens, or configuration settings. Everything remains local to your device.</p>
+          <p>At DevToolHubs, we take your privacy extremely seriously. Because our tools operate completely client-side in your web browser, we do not collect, process, or transmit your text inputs, files, tokens, or configuration settings. Everything remains local to your device.</p>
           
           <h2>1. Information We Do Not Collect</h2>
           <p>When you use the JSON Validator, JWT Decoder, Hash Generator, API Tester, or any other utility, all data inputs and processed outputs remain in your browser's local sandbox memory. This data is never sent to our servers or third-party databases.</p>
@@ -340,26 +340,26 @@ module.exports = {
         "@context": "https://schema.org",
         "@type": "WebPage",
         "name": "Privacy Policy",
-        "url": "https://devtoolshub.local/privacy.html"
+        "url": "https://devtoolhubs.com/privacy.html"
       }
     },
     {
       filename: 'terms.html',
-      metaTitle: 'Terms & Conditions - DevTools Hub',
+      metaTitle: 'Terms & Conditions - DevToolHubs',
       metaDesc: 'Read our Terms of Service. Learn about standard usage rights and the client-side execution parameters of our developer toolset.',
-      canonical: 'https://devtoolshub.local/terms.html',
+      canonical: 'https://devtoolhubs.com/terms.html',
       breadcrumbs: [{ name: 'Terms & Conditions', url: '/terms.html' }],
       content: `
         <div class="static-page-container">
           <h1>Terms & Conditions</h1>
           <p><strong>Last Updated: July 12, 2026</strong></p>
-          <p>By accessing or using the DevTools Hub website, you agree to comply with and be bound by these standard terms. If you disagree, please stop using the site.</p>
+          <p>By accessing or using the DevToolHubs website, you agree to comply with and be bound by these standard terms. If you disagree, please stop using the site.</p>
           
           <h2>1. Use of Services</h2>
           <p>Our tools are provided entirely free of charge for commercial, educational, and personal web operations. You may not attempt to scrape or DDOS the platform interfaces.</p>
           
           <h2>2. Intellectual Property</h2>
-          <p>The layout designs, CSS classes, build scripts, graphics, and code scripts belong to DevTools Hub and are protected under copyright rules.</p>
+          <p>The layout designs, CSS classes, build scripts, graphics, and code scripts belong to DevToolHubs and are protected under copyright rules.</p>
           
           <h2>3. Account / Usage Termination</h2>
           <p>We reserve the right to modify, terminate, or limit any part of this platform without prior notice.</p>
@@ -369,20 +369,20 @@ module.exports = {
         "@context": "https://schema.org",
         "@type": "WebPage",
         "name": "Terms & Conditions",
-        "url": "https://devtoolshub.local/terms.html"
+        "url": "https://devtoolhubs.com/terms.html"
       }
     },
     {
       filename: 'disclaimer.html',
-      metaTitle: 'Disclaimer of Warranties - DevTools Hub',
+      metaTitle: 'Disclaimer of Warranties - DevToolHubs',
       metaDesc: 'Understand the standard disclaimer parameters. Our browser tools are provided as-is without any warranties of uninterrupted operation.',
-      canonical: 'https://devtoolshub.local/disclaimer.html',
+      canonical: 'https://devtoolhubs.com/disclaimer.html',
       breadcrumbs: [{ name: 'Disclaimer', url: '/disclaimer.html' }],
       content: `
         <div class="static-page-container">
           <h1>Disclaimer</h1>
           <p><strong>Effective Date: July 12, 2026</strong></p>
-          <p>All tool outputs, hashes, validator results, cron patterns, and mock API tests provided by DevTools Hub are provided on an "as-is" and "as-available" basis without any express or implied warranties.</p>
+          <p>All tool outputs, hashes, validator results, cron patterns, and mock API tests provided by DevToolHubs are provided on an "as-is" and "as-available" basis without any express or implied warranties.</p>
           
           <h2>1. Accuracy of Tools</h2>
           <p>While we test our decoders, cron simulators, and validators for accuracy, bugs can occur. We do not warrant that all tools will perform perfectly, or meet custom server operations.</p>
@@ -395,20 +395,20 @@ module.exports = {
         "@context": "https://schema.org",
         "@type": "WebPage",
         "name": "Disclaimer",
-        "url": "https://devtoolshub.local/disclaimer.html"
+        "url": "https://devtoolhubs.com/disclaimer.html"
       }
     },
     {
       filename: 'cookie-policy.html',
-      metaTitle: 'Cookie Policy - DevTools Hub',
+      metaTitle: 'Cookie Policy - DevToolHubs',
       metaDesc: 'Learn how we use simple browser storage and cookies to maintain your Dark/Light theme configuration and user preferences.',
-      canonical: 'https://devtoolshub.local/cookie-policy.html',
+      canonical: 'https://devtoolhubs.com/cookie-policy.html',
       breadcrumbs: [{ name: 'Cookie Policy', url: '/cookie-policy.html' }],
       content: `
         <div class="static-page-container">
           <h1>Cookie Policy</h1>
           <p><strong>Effective Date: July 12, 2026</strong></p>
-          <p>This Cookie Policy explains what cookies and local storage items we employ on DevTools Hub to improve your experience.</p>
+          <p>This Cookie Policy explains what cookies and local storage items we employ on DevToolHubs to improve your experience.</p>
           
           <h2>1. Strictly Necessary Storage</h2>
           <p>We use your browser's <code>localStorage</code> API to store your theme preferences (e.g. <code>theme = "dark"</code>). This item does not identify you, and is kept completely within your machine.</p>
@@ -421,14 +421,14 @@ module.exports = {
         "@context": "https://schema.org",
         "@type": "WebPage",
         "name": "Cookie Policy",
-        "url": "https://devtoolshub.local/cookie-policy.html"
+        "url": "https://devtoolhubs.com/cookie-policy.html"
       }
     },
     {
       filename: 'dmca.html',
-      metaTitle: 'DMCA & Copyright Policy - DevTools Hub',
-      metaDesc: 'Read our copyright and DMCA compliance policy. Learn how to submit copyright claims to the DevTools Hub support team.',
-      canonical: 'https://devtoolshub.local/dmca.html',
+      metaTitle: 'DMCA & Copyright Policy - DevToolHubs',
+      metaDesc: 'Read our copyright and DMCA compliance policy. Learn how to submit copyright claims to the DevToolHubs support team.',
+      canonical: 'https://devtoolhubs.com/dmca.html',
       breadcrumbs: [{ name: 'DMCA Policy', url: '/dmca.html' }],
       content: `
         <div class="static-page-container">
@@ -449,19 +449,19 @@ module.exports = {
         "@context": "https://schema.org",
         "@type": "WebPage",
         "name": "DMCA Policy",
-        "url": "https://devtoolshub.local/dmca.html"
+        "url": "https://devtoolhubs.com/dmca.html"
       }
     },
     {
       filename: 'sitemap.html',
-      metaTitle: 'HTML Sitemap - DevTools Hub',
-      metaDesc: 'Comprehensive navigation directory listing every essential page and developer tool available on DevTools Hub.',
-      canonical: 'https://devtoolshub.local/sitemap.html',
+      metaTitle: 'HTML Sitemap - DevToolHubs',
+      metaDesc: 'Comprehensive navigation directory listing every essential page and developer tool available on DevToolHubs.',
+      canonical: 'https://devtoolhubs.com/sitemap.html',
       breadcrumbs: [{ name: 'Sitemap', url: '/sitemap.html' }],
       content: `
         <div class="static-page-container">
           <h1>HTML Sitemap</h1>
-          <p>Find links below to access all 22 web pages and tools hosted on DevTools Hub.</p>
+          <p>Find links below to access all 22 web pages and tools hosted on DevToolHubs.</p>
           
           <h2 style="margin-top: 2rem;">Essential Core Pages</h2>
           <ul>
@@ -496,14 +496,14 @@ module.exports = {
         "@context": "https://schema.org",
         "@type": "WebPage",
         "name": "HTML Sitemap",
-        "url": "https://devtoolshub.local/sitemap.html"
+        "url": "https://devtoolhubs.com/sitemap.html"
       }
     },
     {
       filename: '404.html',
-      metaTitle: 'Page Not Found - DevTools Hub',
+      metaTitle: 'Page Not Found - DevToolHubs',
       metaDesc: 'The page you are looking for does not exist. Navigate back to our home hub to access the list of developer utilities.',
-      canonical: 'https://devtoolshub.local/404.html',
+      canonical: 'https://devtoolhubs.com/404.html',
       breadcrumbs: [{ name: '404 Page', url: '/404.html' }],
       content: `
         <div class="error-404-container">
@@ -516,7 +516,7 @@ module.exports = {
         "@context": "https://schema.org",
         "@type": "WebPage",
         "name": "404 Page Not Found",
-        "url": "https://devtoolshub.local/404.html"
+        "url": "https://devtoolhubs.com/404.html"
       }
     }
   ],
@@ -528,7 +528,7 @@ module.exports = {
       name: 'JSON Validator',
       metaTitle: 'JSON Validator & Prettifier - Format, Validate JSON Online',
       metaDesc: 'Validate, format, lint and minify JSON documents with detailed inline syntax errors highlight. Completely client-side and secure.',
-      canonical: 'https://devtoolshub.local/tools/json-validator.html',
+      canonical: 'https://devtoolhubs.com/tools/json-validator.html',
       breadcrumbs: [
         { name: 'Tools', url: '/tools/json-validator.html' },
         { name: 'JSON Validator', url: '/tools/json-validator.html' }
@@ -634,7 +634,7 @@ module.exports = {
       name: 'JWT Decoder',
       metaTitle: 'JWT Decoder Online - Inspect and Read JSON Web Tokens',
       metaDesc: 'Decode JSON Web Tokens (JWT) payload structures online. Extract cryptographic header metadata and expiration times.',
-      canonical: 'https://devtoolshub.local/tools/jwt-decoder.html',
+      canonical: 'https://devtoolhubs.com/tools/jwt-decoder.html',
       breadcrumbs: [
         { name: 'Tools', url: '/tools/json-validator.html' },
         { name: 'JWT Decoder', url: '/tools/jwt-decoder.html' }
@@ -735,7 +735,7 @@ module.exports = {
       name: 'Regex Tester',
       metaTitle: 'Regex Tester & Matcher - Test Regular Expressions Online',
       metaDesc: 'Test regular expressions in real-time. Matches are highlighted dynamically with detailed capture groups tables.',
-      canonical: 'https://devtoolshub.local/tools/regex-tester.html',
+      canonical: 'https://devtoolhubs.com/tools/regex-tester.html',
       breadcrumbs: [
         { name: 'Tools', url: '/tools/json-validator.html' },
         { name: 'Regex Tester', url: '/tools/regex-tester.html' }
@@ -824,7 +824,7 @@ module.exports = {
       name: 'URL Encoder',
       metaTitle: 'URL Encoder Online - Convert Strings to Percent-Encoding',
       metaDesc: 'Convert unsafe special characters in strings into URL-safe percent-encoded characters securely.',
-      canonical: 'https://devtoolshub.local/tools/url-encoder.html',
+      canonical: 'https://devtoolhubs.com/tools/url-encoder.html',
       breadcrumbs: [
         { name: 'Tools', url: '/tools/json-validator.html' },
         { name: 'URL Encoder', url: '/tools/url-encoder.html' }
@@ -904,7 +904,7 @@ module.exports = {
       name: 'URL Decoder',
       metaTitle: 'URL Decoder Online - Decode Percent-Encoded Strings',
       metaDesc: 'Decode percent-encoded strings back into readable string sequences. Safe browser-based conversion.',
-      canonical: 'https://devtoolshub.local/tools/url-decoder.html',
+      canonical: 'https://devtoolhubs.com/tools/url-decoder.html',
       breadcrumbs: [
         { name: 'Tools', url: '/tools/json-validator.html' },
         { name: 'URL Decoder', url: '/tools/url-decoder.html' }
@@ -983,7 +983,7 @@ module.exports = {
       name: 'Cron Expression Generator',
       metaTitle: 'Cron Expression Generator - Visual Cron Schedule Builder',
       metaDesc: 'Generate crontab schedule expressions visually. Includes real-time human explanations and previews next run dates.',
-      canonical: 'https://devtoolshub.local/tools/cron-generator.html',
+      canonical: 'https://devtoolhubs.com/tools/cron-generator.html',
       breadcrumbs: [
         { name: 'Tools', url: '/tools/json-validator.html' },
         { name: 'Cron Generator', url: '/tools/cron-generator.html' }
@@ -1107,7 +1107,7 @@ module.exports = {
       name: 'UUID Generator',
       metaTitle: 'UUID Generator Online - Generate UUID v4 and v1 Free',
       metaDesc: 'Generate random UUID v4 and time-based UUID v1 values in bulk. Choose uppercase formats or omit hyphens.',
-      canonical: 'https://devtoolshub.local/tools/uuid-generator.html',
+      canonical: 'https://devtoolhubs.com/tools/uuid-generator.html',
       breadcrumbs: [
         { name: 'Tools', url: '/tools/json-validator.html' },
         { name: 'UUID Generator', url: '/tools/uuid-generator.html' }
@@ -1199,7 +1199,7 @@ module.exports = {
       name: 'SHA256 Generator',
       metaTitle: 'SHA256 Hash Generator Online - Secure Cryptographic Hash',
       metaDesc: 'Compute the cryptographic SHA-256 signature of any text string. Fully browser-based security check tool.',
-      canonical: 'https://devtoolshub.local/tools/sha256-generator.html',
+      canonical: 'https://devtoolhubs.com/tools/sha256-generator.html',
       breadcrumbs: [
         { name: 'Tools', url: '/tools/json-validator.html' },
         { name: 'SHA256 Generator', url: '/tools/sha256-generator.html' }
@@ -1275,7 +1275,7 @@ module.exports = {
       name: 'MD5 Generator',
       metaTitle: 'MD5 Hash Generator Online - Compute 128-bit Checksums',
       metaDesc: 'Compute the 128-bit MD5 checksum signature of any input string. Simple, secure, and fast browser tool.',
-      canonical: 'https://devtoolshub.local/tools/md5-generator.html',
+      canonical: 'https://devtoolhubs.com/tools/md5-generator.html',
       breadcrumbs: [
         { name: 'Tools', url: '/tools/json-validator.html' },
         { name: 'MD5 Generator', url: '/tools/md5-generator.html' }
@@ -1347,7 +1347,7 @@ module.exports = {
       name: 'Hash Generator',
       metaTitle: 'Hash Generator Online - Compare SHA256, MD5, SHA1, SHA512',
       metaDesc: 'Generate MD5, SHA-1, SHA-256, SHA-384, and SHA-512 cryptographic hashes simultaneously. Real-time comparison.',
-      canonical: 'https://devtoolshub.local/tools/hash-generator.html',
+      canonical: 'https://devtoolhubs.com/tools/hash-generator.html',
       breadcrumbs: [
         { name: 'Tools', url: '/tools/json-validator.html' },
         { name: 'Hash Generator', url: '/tools/hash-generator.html' }
@@ -1465,7 +1465,7 @@ module.exports = {
       name: 'Diff Checker',
       metaTitle: 'Diff Checker Online - Compare Text and Code Differences',
       metaDesc: 'Compare two text snippets or source code files line-by-line to identify changes, additions, and deletions.',
-      canonical: 'https://devtoolshub.local/tools/diff-checker.html',
+      canonical: 'https://devtoolhubs.com/tools/diff-checker.html',
       breadcrumbs: [
         { name: 'Tools', url: '/tools/json-validator.html' },
         { name: 'Diff Checker', url: '/tools/diff-checker.html' }
@@ -1542,7 +1542,7 @@ module.exports = {
       name: 'API Tester',
       metaTitle: 'API Tester Online - Send HTTP Requests Free',
       metaDesc: 'Test API endpoints directly in your browser. Send GET, POST, PUT requests, configure headers, bodies and view formatting response.',
-      canonical: 'https://devtoolshub.local/tools/api-tester.html',
+      canonical: 'https://devtoolhubs.com/tools/api-tester.html',
       breadcrumbs: [
         { name: 'Tools', url: '/tools/json-validator.html' },
         { name: 'API Tester', url: '/tools/api-tester.html' }

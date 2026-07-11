@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://devtoolshub.local/sitemap.xml
+Sitemap: https://devtoolhubs.com/sitemap.xml
