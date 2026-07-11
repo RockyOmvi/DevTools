@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>URL Decoder Online - Decode Percent-Encoded Strings</title>
+  <meta name="description" content="Decode percent-encoded strings back into readable string sequences. Safe browser-based conversion.">
+  <link rel="canonical" href="https://devtoolshub.local/tools/url-decoder.html">
+  
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://devtoolshub.local/tools/url-decoder.html">
+  <meta property="og:title" content="URL Decoder Online - Decode Percent-Encoded Strings">
+  <meta property="og:description" content="Decode percent-encoded strings back into readable string sequences. Safe browser-based conversion.">
+  
+  <!-- Twitter -->
+  <meta property="twitter:card" content="summary_large_image">
+  <meta property="twitter:url" content="https://devtoolshub.local/tools/url-decoder.html">
+  <meta property="twitter:title" content="URL Decoder Online - Decode Percent-Encoded Strings">
+  <meta property="twitter:description" content="Decode percent-encoded strings back into readable string sequences. Safe browser-based conversion.">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="/favicon.png">
+
+  <!-- Fonts & Styles -->
+  <link rel="stylesheet" href="/assets/css/style.css">
+  
+  <!-- Structured Data (Schema.org) -->
+  <script type="application/ld+json">
+    {
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "name": "URL Decoder Online",
+  "applicationCategory": "DeveloperApplication",
+  "operatingSystem": "All",
+  "description": "Decode percent-encoded strings back into readable string sequences."
+}
+  </script>
+</head>
+<body>
+  <!-- Header -->
+  <header>
+    <div class="header-container">
+      <a href="/" class="logo-link">
+        <svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="color: var(--accent);">
+          <path d="M16.5 9.4 7.55 4.24a1.79 1.79 0 0 0-2.5 1.55v12.42a1.79 1.79 0 0 0 2.5 1.55l8.95-5.17a1.79 1.79 0 0 0 0-3.12Z"/>
+          <path d="M18 6v12M21 9v6"/>
+        </svg>
+        <span>DevTools Hub</span>
+      </a>
+
+      <!-- Search Bar -->
+      <div class="search-container">
+        <div class="search-input-wrapper">
+          <svg viewBox="0 0 24 24">
+            <path d="M15.5 14h-.79l-.28-.27A6.471 6.471 0 0 0 16 9.5 6.5 6.5 0 1 0 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"/>
+          </svg>
+          <input type="text" placeholder="Search developer tools... (e.g. JSON, JWT, Epoch)" class="global-search" id="globalSearchInput" autocomplete="off">
+        </div>
+        <div class="search-results-dropdown" id="searchResultsDropdown"></div>
+      </div>
+
+      <!-- Navigation Menu -->
+      <nav class="nav-menu" id="navMenu">
+        <a href="/" class="nav-link" id="navHome">Home</a>
+        <a href="/tools/json-validator.html" class="nav-link" id="navTools">All Tools</a>
+        <a href="/about.html" class="nav-link" id="navAbout">About</a>
+        <a href="/contact.html" class="nav-link" id="navContact">Contact</a>
+      </nav>
+
+      <!-- Theme Switcher -->
+      <button class="theme-toggle-btn" id="themeToggleBtn" aria-label="Toggle Theme">
+        <svg class="moon-icon" viewBox="0 0 20 20" fill="currentColor">
+          <path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z" />
+        </svg>
+        <svg class="sun-icon" viewBox="0 0 20 20" fill="currentColor">
+          <path fill-rule="evenodd" d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464-5.636a1 1 0 010 1.414l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-5.636 4.364a1 1 0 011.414 0l.707.707a1 1 0 01-1.414 1.414l-.707-.707a1 1 0 010-1.414zM10 16a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.636 14.364a1 1 0 010-1.414l.707-.707a1 1 0 011.414 1.414l-.707.707a1 1 0 01-1.414 0zM3 11a1 1 0 100-2H2a1 1 0 100 2h1zm2.636-5.636a1 1 0 011.414 0l.707.707a1 1 0 11-1.414 1.414l-.707-.707a1 1 0 010-1.414z" clip-rule="evenodd" />
+        </svg>
+      </button>
+
+      <!-- Mobile Menu Toggle -->
+      <button class="menu-toggle-btn" id="menuToggleBtn" aria-label="Toggle Navigation Menu">☰</button>
+    </div>
+  </header>
+
+  <!-- Breadcrumbs -->
+  <div class="breadcrumbs-bar">
+    <div class="breadcrumbs-container" id="breadcrumbsContainer">
+      <a href="/">Home</a>
+      <span class="breadcrumbs-separator">
+        <svg viewBox="0 0 24 24" width="10" height="10" fill="none" stroke="currentColor" stroke-width="2.5" style="vertical-align: middle;"><path d="M9 18l6-6-6-6"/></svg>
+      </span>
+    <a href="/tools/json-validator.html">Tools</a>
+      <span class="breadcrumbs-separator">
+        <svg viewBox="0 0 24 24" width="10" height="10" fill="none" stroke="currentColor" stroke-width="2.5" style="vertical-align: middle;"><path d="M9 18l6-6-6-6"/></svg>
+      </span>
+    <span>URL Decoder</span>
+    </div>
+  </div>
+
+  <!-- Main Content -->
+  <main>
+    <div class="tool-page-layout">
+  <!-- Left Side: Interactive Workspace -->
+  <div class="tool-main-panel">
+    <div class="tool-workspace">
+      <div class="workspace-header">
+        <h1>URL Decoder</h1>
+        <div class="workspace-actions">
+          <button class="btn btn-secondary btn-icon" id="shareBtn" title="Share this Tool">
+            <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 12v8a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-8M16 6l-4-4-4 4M12 2v13"/></svg>
+          </button>
+        </div>
+      </div>
+      
+      <!-- Interactive Forms/Controls -->
+      
+        <div class="form-group">
+          <label for="urlInput">Input Percent-Encoded String to Decode:</label>
+          <textarea id="urlInput" class="code-textarea" placeholder="https%3A%2F%2Fexample.com%2Fsearch%3Fq%3Dhello%20world"></textarea>
+        </div>
+        
+        <div class="workspace-actions" style="margin-bottom: 1rem; justify-content: space-between; align-items: center;">
+          <div style="display: flex; gap: 0.5rem;">
+            <button class="btn btn-primary" id="decodeBtn">Decode URL</button>
+            <button class="btn btn-danger" id="clearBtn">Clear</button>
+          </div>
+          <div style="display: flex; gap: 0.5rem; align-items: center;">
+            <select id="modeSelect" class="form-control" style="width: auto;">
+              <option value="component">Decode URI Component</option>
+              <option value="full">Decode Full URI</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="error-message" id="errorMessage"></div>
+
+        <div class="output-container">
+          <div class="output-header">
+            <span>Decoded Output</span>
+            <button class="btn btn-secondary" id="copyBtn" style="padding: 0.25rem 0.5rem; font-size: 0.75rem;">Copy</button>
+          </div>
+          <div class="output-body" id="outputBody"></div>
+        </div>
+      
+    </div>
+
+    <!-- Detailed Content Below Workspace -->
+    <div class="tool-content-info">
+      <section class="info-section">
+        <h2>What is the URL Decoder?</h2>
+        <p>The online URL Decoder reverts percent-encoded strings back into plaintext characters. It checks for valid hex signatures and translates them back to standard character formats.</p>
+      </section>
+
+      <section class="info-section">
+        <h2>How to Use the URL Decoder?</h2>
+        <div class="how-to-use-content">
+          
+        <ol>
+          <li>Paste the encoded URL or query parameter.</li>
+          <li>Select the decodable modes.</li>
+          <li>Click <strong>Decode URL</strong>.</li>
+          <li>Review and copy the plain output text.</li>
+        </ol>
+      
+        </div>
+      </section>
+
+      <section class="info-section">
+        <h2>Example of URL Decoder</h2>
+        <div class="example-content">
+          
+        <p><strong>Encoded Input:</strong> <code>hello%20world%20%26%20co.</code></p>
+        <p><strong>Decoded Result:</strong> <code>hello world & co.</code></p>
+      
+        </div>
+      </section>
+
+      <section class="info-section">
+        <h2>Benefits of using our URL Decoder</h2>
+        <div class="benefits-content">
+          
+        <ul>
+          <li><strong>Granular Validation:</strong> Alerts users if invalid character formats prevent correct conversion.</li>
+          <li><strong>Completely Private:</strong> Calculations run safely client-side.</li>
+        </ul>
+      
+        </div>
+      </section>
+
+      <section class="info-section">
+        <h2>Frequently Asked Questions (FAQ)</h2>
+        <div class="faq-accordion" id="faqAccordion">
+          
+        <div class="faq-item">
+          <div class="faq-question">What causes URL decoding to fail?</div>
+          <div class="faq-answer">Errors occur if there are incomplete percent sequences, such as a percentage symbol not followed by two valid hexadecimal characters.</div>
+        </div>
+      
+        </div>
+      </section>
+    </div>
+  </div>
+
+  <!-- Right Side: Sidebar Info & Navigation -->
+  <aside class="tool-info-sidebar">
+    <div class="sidebar-box">
+      <h4>
+        <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" style="color: var(--accent);"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4M12 8h.01"/></svg>
+        Quick Overview
+      </h4>
+      <p style="font-size: 0.85rem; color: var(--text-secondary);">Decode parameters back into readable plaintext configurations securely in-browser.</p>
+    </div>
+
+    <div class="sidebar-box">
+      <h4>
+        <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" style="color: var(--warning);"><path d="M12 2L2 22h20L12 2zM12 9v4M12 17h.01"/></svg>
+        Safety & Privacy
+      </h4>
+      <p style="font-size: 0.85rem; color: var(--text-secondary);">All operations are executed completely client-side in your browser. None of your data, tokens, keys, or regex queries are sent to our servers. Your security is our priority.</p>
+    </div>
+
+    <div class="sidebar-box">
+      <h4>
+        <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" style="color: var(--success);"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/></svg>
+        Related Tools
+      </h4>
+      <ul style="list-style: none; font-size: 0.9rem; padding: 0;">
+        
+        <li><a href="/tools/url-encoder.html">URL Encoder</a></li>
+        <li><a href="/tools/json-validator.html">JSON Validator</a></li>
+      
+      </ul>
+    </div>
+  </aside>
+</div>
+
+  </main>
+
+  <!-- Toast Notification -->
+  <div class="toast" id="toastNotification">
+    <span class="toast-message" id="toastMessage">Action performed successfully</span>
+  </div>
+
+  <!-- Footer -->
+  <footer>
+    <div class="footer-container">
+      <div class="footer-brand">
+        <h4>DevTools Hub</h4>
+        <p>Your ultimate all-in-one suite of developer tools. Completely free, privacy-first, secure, and blazing fast utilities for daily coding operations.</p>
+        <p>Email: <a href="mailto:purushottamkumaroffical@gmail.com">purushottamkumaroffical@gmail.com</a></p>
+      </div>
+      <div class="footer-column">
+        <h5>Tools</h5>
+        <ul>
+          <li><a href="/tools/json-validator.html">JSON Validator</a></li>
+          <li><a href="/tools/jwt-decoder.html">JWT Decoder</a></li>
+          <li><a href="/tools/regex-tester.html">Regex Tester</a></li>
+          <li><a href="/tools/diff-checker.html">Diff Checker</a></li>
+          <li><a href="/tools/api-tester.html">API Tester</a></li>
+        </ul>
+      </div>
+      <div class="footer-column">
+        <h5>Utilities</h5>
+        <ul>
+          <li><a href="/tools/url-encoder.html">URL Encoder</a></li>
+          <li><a href="/tools/url-decoder.html">URL Decoder</a></li>
+          <li><a href="/tools/cron-generator.html">Cron Generator</a></li>
+          <li><a href="/tools/uuid-generator.html">UUID Generator</a></li>
+          <li><a href="/tools/hash-generator.html">Hash Multi-Generator</a></li>
+        </ul>
+      </div>
+      <div class="footer-column">
+        <h5>Support</h5>
+        <ul>
+          <li><a href="/about.html">About Us</a></li>
+          <li><a href="/contact.html">Contact Us</a></li>
+          <li><a href="/sitemap.html">Sitemap</a></li>
+          <li><a href="/sitemap.xml">XML Sitemap</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2026 DevTools Hub. All rights reserved.</p>
+      <div class="footer-bottom-links">
+        <a href="/privacy.html">Privacy Policy</a>
+        <a href="/terms.html">Terms & Conditions</a>
+        <a href="/disclaimer.html">Disclaimer</a>
+        <a href="/cookie-policy.html">Cookie Policy</a>
+        <a href="/dmca.html">DMCA / Copyright Policy</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="/assets/js/main.js"></script>
+  <script src="/assets/js/tools/url-encoder-decoder.js"></script>
+</body>
+</html>

@@ -1,0 +1,83 @@
+<div class="tool-page-layout">
+  <!-- Left Side: Interactive Workspace -->
+  <div class="tool-main-panel">
+    <div class="tool-workspace">
+      <div class="workspace-header">
+        <h1>{{TOOL_NAME}}</h1>
+        <div class="workspace-actions">
+          <button class="btn btn-secondary btn-icon" id="shareBtn" title="Share this Tool">
+            <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 12v8a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-8M16 6l-4-4-4 4M12 2v13"/></svg>
+          </button>
+        </div>
+      </div>
+      
+      <!-- Interactive Forms/Controls -->
+      {{TOOL_WORKSPACE}}
+    </div>
+
+    <!-- Detailed Content Below Workspace -->
+    <div class="tool-content-info">
+      <section class="info-section">
+        <h2>What is the {{TOOL_NAME}}?</h2>
+        <p>{{TOOL_DETAILED_DESCRIPTION}}</p>
+      </section>
+
+      <section class="info-section">
+        <h2>How to Use the {{TOOL_NAME}}?</h2>
+        <div class="how-to-use-content">
+          {{TOOL_HOW_TO_USE}}
+        </div>
+      </section>
+
+      <section class="info-section">
+        <h2>Example of {{TOOL_NAME}}</h2>
+        <div class="example-content">
+          {{TOOL_EXAMPLE}}
+        </div>
+      </section>
+
+      <section class="info-section">
+        <h2>Benefits of using our {{TOOL_NAME}}</h2>
+        <div class="benefits-content">
+          {{TOOL_BENEFITS}}
+        </div>
+      </section>
+
+      <section class="info-section">
+        <h2>Frequently Asked Questions (FAQ)</h2>
+        <div class="faq-accordion" id="faqAccordion">
+          {{TOOL_FAQS}}
+        </div>
+      </section>
+    </div>
+  </div>
+
+  <!-- Right Side: Sidebar Info & Navigation -->
+  <aside class="tool-info-sidebar">
+    <div class="sidebar-box">
+      <h4>
+        <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" style="color: var(--accent);"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4M12 8h.01"/></svg>
+        Quick Overview
+      </h4>
+      <p style="font-size: 0.85rem; color: var(--text-secondary);">{{TOOL_DESCRIPTION}}</p>
+    </div>
+
+    <div class="sidebar-box">
+      <h4>
+        <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" style="color: var(--warning);"><path d="M12 2L2 22h20L12 2zM12 9v4M12 17h.01"/></svg>
+        Safety & Privacy
+      </h4>
+      <p style="font-size: 0.85rem; color: var(--text-secondary);">All operations are executed completely client-side in your browser. None of your data, tokens, keys, or regex queries are sent to our servers. Your security is our priority.</p>
+    </div>
+
+    <div class="sidebar-box">
+      <h4>
+        <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" style="color: var(--success);"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/></svg>
+        Related Tools
+      </h4>
+      <ul style="list-style: none; font-size: 0.9rem; padding: 0;">
+        {{RELATED_TOOLS}}
+      </ul>
+    </div>
+  </aside>
+</div>
