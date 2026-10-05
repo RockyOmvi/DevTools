@@ -161,6 +161,7 @@ Sitemap: https://devtoolhubs.com/sitemap.xml
   console.log('- Created: dist/robots.txt');
 
   // sitemap.xml
+  const currentDate = new Date().toISOString().split('T')[0];
   let sitemapXml = `<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 `;
@@ -172,7 +173,7 @@ Sitemap: https://devtoolhubs.com/sitemap.xml
     const urlPath = page.filename === 'index.html' ? '' : page.filename;
     sitemapXml += `  <url>
     <loc>https://devtoolhubs.com/${urlPath}</loc>
-    <lastmod>2026-07-12</lastmod>
+    <lastmod>${currentDate}</lastmod>
     <changefreq>weekly</changefreq>
     <priority>${page.filename === 'index.html' ? '1.0' : '0.7'}</priority>
   </url>\n`;
@@ -182,7 +183,7 @@ Sitemap: https://devtoolhubs.com/sitemap.xml
   pagesConfig.tools.forEach(tool => {
     sitemapXml += `  <url>
     <loc>https://devtoolhubs.com/${tool.filename}</loc>
-    <lastmod>2026-07-12</lastmod>
+    <lastmod>${currentDate}</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>\n`;

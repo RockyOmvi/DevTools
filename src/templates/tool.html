@@ -19,7 +19,9 @@
     <div class="tool-content-info">
       <section class="info-section">
         <h2>What is the {{TOOL_NAME}}?</h2>
-        <p>{{TOOL_DETAILED_DESCRIPTION}}</p>
+        <div class="detailed-description-content">
+          {{TOOL_DETAILED_DESCRIPTION}}
+        </div>
       </section>
 
       <section class="info-section">
@@ -80,20 +82,33 @@
       </ul>
     </div>
 
-    <!-- Skyscraper Ad -->
-    <div class="sidebar-box" style="text-align: center; display: flex; flex-direction: column; align-items: center; padding: 1.25rem 0.5rem; overflow: hidden;">
-      <h5 style="font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.05em; color: var(--text-muted); margin-bottom: 0.75rem;">Advertisement</h5>
-      <div style="width: 160px; height: 600px; display: flex; justify-content: center; background-color: var(--bg-tertiary); border-radius: var(--radius-sm); border: 1px dashed var(--border);">
-        <script>
-          atOptions = {
-            'key' : '8878c0e0ef64a20f5b8f444a4e28ef25',
-            'format' : 'iframe',
-            'height' : 600,
-            'width' : 160,
-            'params' : {}
-          };
-        </script>
-        <script src="https://www.highperformanceformat.com/8878c0e0ef64a20f5b8f444a4e28ef25/invoke.js"></script>
+    <!-- Technical Specifications Card -->
+    <div class="sidebar-box spec-box">
+      <h4>
+        <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" style="color: var(--accent);"><polygon points="12 2 2 7 12 12 22 7 12 2"/><polyline points="2 17 12 22 22 17"/><polyline points="2 12 12 17 22 12"/></svg>
+        Tool Specifications
+      </h4>
+      <div class="spec-list" style="font-size: 0.85rem; color: var(--text-secondary); display: flex; flex-direction: column; gap: 0.5rem;">
+        <div style="display: flex; justify-content: space-between; border-bottom: 1px dashed var(--border); padding-bottom: 0.35rem;">
+          <span>Execution:</span>
+          <strong style="color: var(--success);">100% Client-Side</strong>
+        </div>
+        <div style="display: flex; justify-content: space-between; border-bottom: 1px dashed var(--border); padding-bottom: 0.35rem;">
+          <span>Data Storage:</span>
+          <strong>Zero Server Retention</strong>
+        </div>
+        <div style="display: flex; justify-content: space-between; border-bottom: 1px dashed var(--border); padding-bottom: 0.35rem;">
+          <span>Standard:</span>
+          <strong>W3C / IETF RFCs</strong>
+        </div>
+        <div style="display: flex; justify-content: space-between; border-bottom: 1px dashed var(--border); padding-bottom: 0.35rem;">
+          <span>Telemetry:</span>
+          <strong>No Input Tracking</strong>
+        </div>
+        <div style="display: flex; justify-content: space-between; padding-bottom: 0.2rem;">
+          <span>Runtime:</span>
+          <strong>V8 / SpiderMonkey / JSC</strong>
+        </div>
       </div>
     </div>
   </aside>
