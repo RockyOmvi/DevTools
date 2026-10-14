@@ -17,35 +17,52 @@
 
     <!-- Detailed Content Below Workspace -->
     <div class="tool-content-info">
-      <section class="info-section">
+      <!-- In-Page Anchor Jump Bar for Google Sitelinks -->
+      <nav class="tool-jump-nav" aria-label="Table of contents" style="display: flex; gap: 0.5rem; flex-wrap: wrap; margin-bottom: 1.5rem; padding: 0.75rem 1rem; background: var(--bg-tertiary); border: 1px solid var(--border); border-radius: var(--radius-md); font-size: 0.85rem;">
+        <span style="font-weight: 600; color: var(--text-muted); align-self: center;">Jump to:</span>
+        <a href="#overview" style="color: var(--accent); font-weight: 500;">Overview</a>
+        <span style="color: var(--border);">•</span>
+        <a href="#how-to-use" style="color: var(--accent); font-weight: 500;">How to Use</a>
+        <span style="color: var(--border);">•</span>
+        <a href="#examples" style="color: var(--accent); font-weight: 500;">Code Examples</a>
+        <span style="color: var(--border);">•</span>
+        <a href="#benefits" style="color: var(--accent); font-weight: 500;">Key Benefits</a>
+        <span style="color: var(--border);">•</span>
+        <a href="#faq" style="color: var(--accent); font-weight: 500;">FAQs</a>
+      </nav>
+
+      <section class="info-section" id="overview">
         <h2>What is the {{TOOL_NAME}}?</h2>
+        <div class="featured-snippet-box" style="background: var(--bg-tertiary); border-left: 4px solid var(--accent); padding: 1rem 1.25rem; margin-bottom: 1.25rem; border-radius: var(--radius-sm); font-size: 0.95rem; line-height: 1.6;">
+          <strong>Direct Definition:</strong> The <strong>{{TOOL_NAME}}</strong> on DevToolHubs is a client-side developer utility designed to {{TOOL_DESCRIPTION}} Every operation executes 100% locally in your web browser with zero server data logging and maximum privacy.
+        </div>
         <div class="detailed-description-content">
           {{TOOL_DETAILED_DESCRIPTION}}
         </div>
       </section>
 
-      <section class="info-section">
+      <section class="info-section" id="how-to-use">
         <h2>How to Use the {{TOOL_NAME}}?</h2>
         <div class="how-to-use-content">
           {{TOOL_HOW_TO_USE}}
         </div>
       </section>
 
-      <section class="info-section">
+      <section class="info-section" id="examples">
         <h2>Example of {{TOOL_NAME}}</h2>
         <div class="example-content">
           {{TOOL_EXAMPLE}}
         </div>
       </section>
 
-      <section class="info-section">
+      <section class="info-section" id="benefits">
         <h2>Benefits of using our {{TOOL_NAME}}</h2>
         <div class="benefits-content">
           {{TOOL_BENEFITS}}
         </div>
       </section>
 
-      <section class="info-section">
+      <section class="info-section" id="faq">
         <h2>Frequently Asked Questions (FAQ)</h2>
         <div class="faq-accordion" id="faqAccordion">
           {{TOOL_FAQS}}

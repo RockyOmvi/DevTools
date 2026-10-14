@@ -112,21 +112,58 @@ function extractFaqSchema(faqHtml) {
   };
 }
 
-// Build unified JSON-LD schema with @graph
+// Build unified JSON-LD schema with @graph (E-E-A-T compliant)
 function buildPageSchema(primarySchema, breadcrumbSchema, faqSchema) {
   const graph = [];
 
+  // 1. Authoritative Organization Entity Node (Google E-E-A-T)
+  const organizationNode = {
+    "@type": "Organization",
+    "@id": "https://devtoolhubs.com/#organization",
+    "name": "DevToolHubs",
+    "url": "https://devtoolhubs.com/",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://devtoolhubs.com/favicon.png",
+      "caption": "DevToolHubs Logo"
+    },
+    "founder": {
+      "@type": "Person",
+      "name": "Purushottam Kumar (Rocky)",
+      "jobTitle": "Lead Software Engineer",
+      "url": "https://github.com/RockyOmvi"
+    },
+    "contactPoint": {
+      "@type": "ContactPoint",
+      "email": "purushottamkumaroffical@gmail.com",
+      "contactType": "technical support",
+      "availableLanguage": ["English"]
+    }
+  };
+  graph.push(organizationNode);
+
+  // 2. Primary Page / Tool Schema
   if (primarySchema) {
-    // Clone without outer context if present
     const cleanPrimary = { ...primarySchema };
     delete cleanPrimary['@context'];
+
+    // Attach verified publisher & author to SoftwareApplication
+    if (cleanPrimary['@type'] === 'SoftwareApplication') {
+      cleanPrimary.publisher = { "@id": "https://devtoolhubs.com/#organization" };
+      cleanPrimary.author = { "@id": "https://devtoolhubs.com/#organization" };
+      cleanPrimary.inLanguage = "en-US";
+      cleanPrimary.isAccessibleForFree = true;
+    }
+
     graph.push(cleanPrimary);
   }
 
+  // 3. BreadcrumbList Schema
   if (breadcrumbSchema) {
     graph.push(breadcrumbSchema);
   }
 
+  // 4. FAQPage Schema
   if (faqSchema) {
     graph.push(faqSchema);
   }
@@ -225,13 +262,25 @@ function build() {
     console.log('- Copied optimized favicon.png to dist/');
   }
 
-  // 6. Generate robots.txt, sitemap.xml, ads.txt, _redirects & _headers
-  console.log('Generating robots.txt, sitemap.xml, ads.txt, _redirects & _headers...');
+  // 6. Generate robots.txt, sitemap.xml, ads.txt, _redirects, _headers, manifest.json & IndexNow
+  console.log('Generating robots.txt, sitemap.xml, ads.txt, _redirects, _headers, manifest & IndexNow...');
   
   // ads.txt
   const adsTxt = `google.com, pub-2528737901889485, DIRECT, f08c47fec0942fa0`;
   fs.writeFileSync(path.join(distDir, 'ads.txt'), adsTxt, 'utf8');
   console.log('- Created: dist/ads.txt');
+
+  // Copy PWA manifest.json to web root
+  const manifestSrc = path.join(assetsSrcDir, 'manifest.json');
+  if (fs.existsSync(manifestSrc)) {
+    fs.copyFileSync(manifestSrc, path.join(distDir, 'manifest.json'));
+    console.log('- Created: dist/manifest.json');
+  }
+
+  // IndexNow Key & Verification File
+  const indexNowKey = 'e0f78bc41b2e49c7a23d81b95f2a1701';
+  fs.writeFileSync(path.join(distDir, `${indexNowKey}.txt`), indexNowKey, 'utf8');
+  console.log(`- Created: dist/${indexNowKey}.txt (IndexNow Key)`);
 
   // Cloudflare _redirects
   const redirectsTxt = `# Canonical Domain & HTTPS Enforcement
@@ -253,6 +302,9 @@ http://www.devtoolhubs.com/* https://devtoolhubs.com/:splat 301!
 /assets/*
   Cache-Control: public, max-age=31536000, immutable
 
+/manifest.json
+  Cache-Control: public, max-age=86400
+
 /favicon.png
   Cache-Control: public, max-age=86400, stale-while-revalidate=604800
 `;
@@ -268,10 +320,11 @@ Sitemap: https://devtoolhubs.com/sitemap.xml
   fs.writeFileSync(path.join(distDir, 'robots.txt'), robotsTxt, 'utf8');
   console.log('- Created: dist/robots.txt');
 
-  // sitemap.xml
-  const currentDate = new Date().toISOString().split('T')[0];
+  // sitemap.xml with Google Image Extension
+  const isoDate = new Date().toISOString();
   let sitemapXml = `<?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
 `;
 
   // Add general pages
@@ -279,21 +332,31 @@ Sitemap: https://devtoolhubs.com/sitemap.xml
     // Skip 404
     if (page.filename === '404.html') return;
     const urlPath = page.filename === 'index.html' ? '' : page.filename;
+    const safeTitle = (page.metaTitle || 'DevToolHubs').replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
     sitemapXml += `  <url>
     <loc>https://devtoolhubs.com/${urlPath}</loc>
-    <lastmod>${currentDate}</lastmod>
+    <lastmod>${isoDate}</lastmod>
     <changefreq>weekly</changefreq>
     <priority>${page.filename === 'index.html' ? '1.0' : '0.7'}</priority>
+    <image:image>
+      <image:loc>https://devtoolhubs.com/assets/images/og-banner.png</image:loc>
+      <image:title>${safeTitle}</image:title>
+    </image:image>
   </url>\n`;
   });
 
   // Add tools
   pagesConfig.tools.forEach(tool => {
+    const safeName = (tool.name || 'Developer Tool').replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
     sitemapXml += `  <url>
     <loc>https://devtoolhubs.com/${tool.filename}</loc>
-    <lastmod>${currentDate}</lastmod>
+    <lastmod>${isoDate}</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://devtoolhubs.com/assets/images/og-banner.png</image:loc>
+      <image:title>${safeName}</image:title>
+    </image:image>
   </url>\n`;
   });
 

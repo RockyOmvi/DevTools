@@ -5,6 +5,7 @@
   "main": "build.js",
   "scripts": {
     "build": "node build.js",
+    "ping": "node scripts/ping-search-engines.js",
     "serve": "npx -y http-server ./"
   },
   "dependencies": {},

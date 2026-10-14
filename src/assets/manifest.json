@@ -1,0 +1,23 @@
+{
+  "name": "DevToolHubs - Client-Side Developer Utilities",
+  "short_name": "DevToolHubs",
+  "description": "Fast, private, client-side developer utilities and tools for daily software engineering.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#0f172a",
+  "theme_color": "#0f172a",
+  "icons": [
+    {
+      "src": "/favicon.png",
+      "sizes": "64x64",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/assets/images/apple-touch-icon.png",
+      "sizes": "180x180",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ]
+}
