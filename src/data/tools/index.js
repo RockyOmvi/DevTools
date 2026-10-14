@@ -7,6 +7,9 @@ const uuidGenerator = require('./uuid-generator.js');
 const { sha256Generator, md5Generator, hashGenerator } = require('./hash-tools.js');
 const diffChecker = require('./diff-checker.js');
 const apiTester = require('./api-tester.js');
+const epochConverter = require('./epoch-converter.js');
+const base64Tools = require('./base64-tools.js');
+const jsonToTypes = require('./json-to-types.js');
 
 module.exports = [
   jsonValidator,
@@ -20,5 +23,9 @@ module.exports = [
   md5Generator,
   hashGenerator,
   diffChecker,
-  apiTester
+  apiTester,
+  epochConverter,
+  base64Tools,
+  jsonToTypes
 ];
+

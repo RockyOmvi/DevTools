@@ -54,6 +54,89 @@ function generateBreadcrumbsHTML(breadcrumbs) {
   return html;
 }
 
+// Generate BreadcrumbList Schema (Schema.org)
+function generateBreadcrumbSchema(breadcrumbs, canonicalUrl) {
+  const items = [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Home",
+      "item": "https://devtoolhubs.com/"
+    }
+  ];
+
+  if (breadcrumbs && breadcrumbs.length > 0) {
+    breadcrumbs.forEach((crumb, idx) => {
+      const fullUrl = crumb.url.startsWith('http') ? crumb.url : `https://devtoolhubs.com${crumb.url}`;
+      items.push({
+        "@type": "ListItem",
+        "position": idx + 2,
+        "name": crumb.name,
+        "item": fullUrl
+      });
+    });
+  }
+
+  return {
+    "@type": "BreadcrumbList",
+    "itemListElement": items
+  };
+}
+
+// Extract FAQPage Schema from raw FAQ HTML
+function extractFaqSchema(faqHtml) {
+  if (!faqHtml) return null;
+  const questions = [];
+  const regex = /<div class="faq-question">([\s\S]*?)<\/div>\s*<div class="faq-answer">([\s\S]*?)<\/div>/gi;
+  let match;
+  while ((match = regex.exec(faqHtml)) !== null) {
+    const questionText = match[1].replace(/<[^>]+>/g, '').trim();
+    const answerText = match[2].replace(/<[^>]+>/g, '').trim();
+    if (questionText && answerText) {
+      questions.push({
+        "@type": "Question",
+        "name": questionText,
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": answerText
+        }
+      });
+    }
+  }
+
+  if (questions.length === 0) return null;
+
+  return {
+    "@type": "FAQPage",
+    "mainEntity": questions
+  };
+}
+
+// Build unified JSON-LD schema with @graph
+function buildPageSchema(primarySchema, breadcrumbSchema, faqSchema) {
+  const graph = [];
+
+  if (primarySchema) {
+    // Clone without outer context if present
+    const cleanPrimary = { ...primarySchema };
+    delete cleanPrimary['@context'];
+    graph.push(cleanPrimary);
+  }
+
+  if (breadcrumbSchema) {
+    graph.push(breadcrumbSchema);
+  }
+
+  if (faqSchema) {
+    graph.push(faqSchema);
+  }
+
+  return {
+    "@context": "https://schema.org",
+    "@graph": graph
+  };
+}
+
 function build() {
   console.log('Starting DevToolHubs static site build...');
 
@@ -73,13 +156,15 @@ function build() {
     
     // Breadcrumbs
     const crumbsHTML = generateBreadcrumbsHTML(page.breadcrumbs);
+    const breadcrumbSchema = generateBreadcrumbSchema(page.breadcrumbs, page.canonical);
+    const fullSchema = buildPageSchema(page.schema, breadcrumbSchema, null);
 
     // Replacements
     html = html
       .replace(/{{META_TITLE}}/g, page.metaTitle)
       .replace(/{{META_DESCRIPTION}}/g, page.metaDesc)
       .replace(/{{CANONICAL_URL}}/g, page.canonical)
-      .replace(/{{SCHEMA_JSON}}/g, JSON.stringify(page.schema, null, 2))
+      .replace(/{{SCHEMA_JSON}}/g, JSON.stringify(fullSchema, null, 2))
       .replace(/{{BREADCRUMBS_HTML}}/g, crumbsHTML)
       .replace(/{{MAIN_CONTENT}}/g, page.content)
       .replace(/{{PAGE_SCRIPTS}}/g, '');
@@ -109,13 +194,16 @@ function build() {
     // Merge into layout
     let html = layoutTemplate;
     const crumbsHTML = generateBreadcrumbsHTML(tool.breadcrumbs);
+    const breadcrumbSchema = generateBreadcrumbSchema(tool.breadcrumbs, tool.canonical);
+    const faqSchema = extractFaqSchema(tool.faqs);
+    const fullSchema = buildPageSchema(tool.schema, breadcrumbSchema, faqSchema);
     const scriptTag = `<script src="/assets/js/tools/${tool.script}"></script>`;
 
     html = html
       .replace(/{{META_TITLE}}/g, tool.metaTitle)
       .replace(/{{META_DESCRIPTION}}/g, tool.metaDesc)
       .replace(/{{CANONICAL_URL}}/g, tool.canonical)
-      .replace(/{{SCHEMA_JSON}}/g, JSON.stringify(tool.schema, null, 2))
+      .replace(/{{SCHEMA_JSON}}/g, JSON.stringify(fullSchema, null, 2))
       .replace(/{{BREADCRUMBS_HTML}}/g, crumbsHTML)
       .replace(/{{MAIN_CONTENT}}/g, toolHtml)
       .replace(/{{PAGE_SCRIPTS}}/g, scriptTag);
@@ -126,30 +214,50 @@ function build() {
   });
 
   // 5. Copy assets
-  console.log('Copying static assets (CSS, JS)...');
+  console.log('Copying static assets (CSS, JS, Images)...');
   copyDir(assetsSrcDir, assetsDestDir);
 
-  // Create a placeholder favicon.png to avoid broken link console errors
-  // We can write a tiny 1x1 transparent png or simple icon bytes
+  // Copy favicon.png
   const faviconPath = path.join(distDir, 'favicon.png');
   const localFavicon = path.join(rootDir, 'favicon.png');
   if (fs.existsSync(localFavicon)) {
     fs.copyFileSync(localFavicon, faviconPath);
-    console.log('- Copied user favicon.png to dist/');
-  } else if (!fs.existsSync(faviconPath)) {
-    // 1x1 Transparent PNG Base64
-    const base64Png = 'iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=';
-    fs.writeFileSync(faviconPath, Buffer.from(base64Png, 'base64'));
-    console.log('- Created: placeholder favicon.png');
+    console.log('- Copied optimized favicon.png to dist/');
   }
 
-  // 6. Generate robots.txt, sitemap.xml & ads.txt
-  console.log('Generating robots.txt, sitemap.xml & ads.txt...');
+  // 6. Generate robots.txt, sitemap.xml, ads.txt, _redirects & _headers
+  console.log('Generating robots.txt, sitemap.xml, ads.txt, _redirects & _headers...');
   
   // ads.txt
   const adsTxt = `google.com, pub-2528737901889485, DIRECT, f08c47fec0942fa0`;
   fs.writeFileSync(path.join(distDir, 'ads.txt'), adsTxt, 'utf8');
   console.log('- Created: dist/ads.txt');
+
+  // Cloudflare _redirects
+  const redirectsTxt = `# Canonical Domain & HTTPS Enforcement
+http://devtoolhubs.com/* https://devtoolhubs.com/:splat 301!
+https://www.devtoolhubs.com/* https://devtoolhubs.com/:splat 301!
+http://www.devtoolhubs.com/* https://devtoolhubs.com/:splat 301!
+`;
+  fs.writeFileSync(path.join(distDir, '_redirects'), redirectsTxt, 'utf8');
+  console.log('- Created: dist/_redirects');
+
+  // Cloudflare _headers
+  const headersTxt = `/*
+  X-Frame-Options: SAMEORIGIN
+  X-Content-Type-Options: nosniff
+  Referrer-Policy: strict-origin-when-cross-origin
+  Permissions-Policy: geolocation=(), camera=(), microphone=()
+  Strict-Transport-Security: max-age=31536000; includeSubDomains; preload
+
+/assets/*
+  Cache-Control: public, max-age=31536000, immutable
+
+/favicon.png
+  Cache-Control: public, max-age=86400, stale-while-revalidate=604800
+`;
+  fs.writeFileSync(path.join(distDir, '_headers'), headersTxt, 'utf8');
+  console.log('- Created: dist/_headers');
 
   // robots.txt
   const robotsTxt = `User-agent: *

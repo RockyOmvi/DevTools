@@ -200,6 +200,51 @@ module.exports = [
             <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
           </a>
         </div>
+
+        <!-- Card: Unix Epoch Converter -->
+        <div class="tool-card" data-category="generators">
+          <div>
+            <div class="tool-card-icon">
+              <svg viewBox="0 0 24 24"><path d="M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zM12 20c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8zm.5-13H11v6l5.25 3.15.75-1.23-4.5-2.67z"/></svg>
+            </div>
+            <h3>Unix Epoch & Timestamp Converter</h3>
+            <p>Convert Unix timestamps in seconds & milliseconds to human-readable dates (UTC, ISO 8601, RFC 2822, Local). Includes a live ticking epoch clock.</p>
+          </div>
+          <a href="/tools/epoch-converter.html" class="tool-card-btn">
+            Open Tool
+            <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </a>
+        </div>
+
+        <!-- Card: Base64 Converter -->
+        <div class="tool-card" data-category="validation">
+          <div>
+            <div class="tool-card-icon">
+              <svg viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4M17 8l-5-5-5 5M12 3v12"/></svg>
+            </div>
+            <h3>Base64 String & Image Converter</h3>
+            <p>Encode and decode UTF-8 text to Base64, and convert images or binary files into ready-to-use Data URLs, HTML &lt;img&gt; tags, and CSS background rules.</p>
+          </div>
+          <a href="/tools/base64-tools.html" class="tool-card-btn">
+            Open Tool
+            <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </a>
+        </div>
+
+        <!-- Card: JSON to Types Converter -->
+        <div class="tool-card" data-category="validation">
+          <div>
+            <div class="tool-card-icon">
+              <svg viewBox="0 0 24 24"><path d="M9.4 16.6L4.8 12l4.6-4.6L8 6l-6 6 6 6 1.4-1.4zm5.2 0l4.6-4.6-4.6-4.6L16 6l6 6-6 6-1.4-1.4z"/></svg>
+            </div>
+            <h3>JSON to TypeScript & Go Converter</h3>
+            <p>Generate clean, strongly-typed TypeScript interfaces or Go structs with json tags directly from raw JSON payloads and API responses.</p>
+          </div>
+          <a href="/tools/json-to-types.html" class="tool-card-btn">
+            Open Tool
+            <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </a>
+        </div>
       </div>
 
       <!-- Extended Home Content: Why DevToolHubs & Architectural Quality -->
@@ -755,14 +800,17 @@ module.exports = [
           <li><a href="/tools/jwt-decoder.html">JWT Decoder</a> - Decode JSON Web Token headers, payload claims, and timestamp lifecycles.</li>
           <li><a href="/tools/regex-tester.html">Regex Tester & Debugger</a> - Test regular expression patterns with match group extraction and flags.</li>
           <li><a href="/tools/diff-checker.html">Text & Code Diff Checker</a> - Compare code files and text strings side-by-side using unified diffs.</li>
+          <li><a href="/tools/json-to-types.html">JSON to TypeScript & Go Converter</a> - Convert JSON payloads into clean TypeScript interfaces or Go structs with tags.</li>
         </ul>
 
         <h2>Encoding & System Generators</h2>
         <ul>
           <li><a href="/tools/url-encoder.html">URL Encoder</a> - Percent-encode special characters into RFC 3986 URI format.</li>
           <li><a href="/tools/url-decoder.html">URL Decoder</a> - Decode percent-encoded query strings back to human-readable UTF-8 text.</li>
+          <li><a href="/tools/base64-tools.html">Base64 String & Image Converter</a> - Encode and decode text, files, and images to Base64 and Data URLs.</li>
           <li><a href="/tools/cron-generator.html">Cron Schedule Generator</a> - Visual builder and parser for POSIX 5-field crontab expressions.</li>
           <li><a href="/tools/uuid-generator.html">UUID / GUID Generator</a> - Generate RFC 4122 Version 4 random UUIDs individually or in bulk.</li>
+          <li><a href="/tools/epoch-converter.html">Unix Epoch & Timestamp Converter</a> - Convert Unix timestamps to human dates with live ticking clock.</li>
         </ul>
 
         <h2>Hashing & Cryptographic Utilities</h2>

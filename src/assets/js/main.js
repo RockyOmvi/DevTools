@@ -47,7 +47,10 @@ const searchToolsIndex = [
   { name: 'MD5 Generator', path: '/tools/md5-generator.html', desc: 'Compute the 128-bit MD5 checksum signature of any input string.', tags: ['md5', 'hash', 'cryptography', 'checksum', 'signature'] },
   { name: 'Hash Generator', path: '/tools/hash-generator.html', desc: 'Generate SHA1, SHA256, SHA512, MD5, SHA384, and SHA224 hashes simultaneously.', tags: ['hash', 'generator', 'sha512', 'sha1', 'sha384', 'sha224', 'cryptography'] },
   { name: 'Diff Checker', path: '/tools/diff-checker.html', desc: 'Compare two text snippets side-by-side or inline to spot differences quickly.', tags: ['diff', 'compare', 'checker', 'text', 'match'] },
-  { name: 'API Tester', path: '/tools/api-tester.html', desc: 'Make HTTP requests (GET, POST, etc.) and view header, body responses in real-time.', tags: ['api', 'tester', 'fetch', 'http', 'request', 'postman'] }
+  { name: 'API Tester', path: '/tools/api-tester.html', desc: 'Make HTTP requests (GET, POST, etc.) and view header, body responses in real-time.', tags: ['api', 'tester', 'fetch', 'http', 'request', 'postman'] },
+  { name: 'Epoch / Unix Timestamp Converter', path: '/tools/epoch-converter.html', desc: 'Convert Unix epoch timestamps to human dates (UTC, ISO 8601, Local) with live ticking clock.', tags: ['epoch', 'timestamp', 'unix', 'time', 'date', 'utc', 'clock', 'milliseconds'] },
+  { name: 'Base64 String & Image Converter', path: '/tools/base64-tools.html', desc: 'Encode and decode UTF-8 text, files, and images to Base64 and Data URLs.', tags: ['base64', 'encode', 'decode', 'image', 'data url', 'b64', 'binary'] },
+  { name: 'JSON to TypeScript & Go Converter', path: '/tools/json-to-types.html', desc: 'Convert JSON payloads into clean TypeScript interfaces or Go structs with json tags.', tags: ['typescript', 'go', 'golang', 'types', 'interface', 'struct', 'json to ts', 'model'] }
 ];
 
 if (searchInput && searchDropdown) {

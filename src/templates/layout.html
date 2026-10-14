@@ -15,20 +15,43 @@
   <meta name="description" content="{{META_DESCRIPTION}}">
   <link rel="canonical" href="{{CANONICAL_URL}}">
   
+  <meta name="theme-color" content="#0f172a">
+  
+  <!-- Expert Indexing Directives (Google / Bing) -->
+  <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
+  <meta name="googlebot" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
+  <meta name="bingbot" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
+  
+  <!-- Web App Manifest & Mobile Web App Capabilities -->
+  <link rel="manifest" href="/manifest.json">
+  <meta name="application-name" content="DevToolHubs">
+  <meta name="apple-mobile-web-app-title" content="DevToolHubs">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="format-detection" content="telephone=no">
+  
   <!-- Open Graph / Facebook -->
   <meta property="og:type" content="website">
+  <meta property="og:site_name" content="DevToolHubs">
   <meta property="og:url" content="{{CANONICAL_URL}}">
   <meta property="og:title" content="{{META_TITLE}}">
   <meta property="og:description" content="{{META_DESCRIPTION}}">
+  <meta property="og:image" content="https://devtoolhubs.com/assets/images/og-banner.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="DevToolHubs - Free Client-Side Developer Utilities">
+  <meta property="og:locale" content="en_US">
   
   <!-- Twitter -->
   <meta property="twitter:card" content="summary_large_image">
   <meta property="twitter:url" content="{{CANONICAL_URL}}">
   <meta property="twitter:title" content="{{META_TITLE}}">
   <meta property="twitter:description" content="{{META_DESCRIPTION}}">
+  <meta property="twitter:image" content="https://devtoolhubs.com/assets/images/og-banner.png">
 
-  <!-- Favicon -->
-  <link rel="icon" type="image/png" href="/favicon.png">
+  <!-- Favicon & Icons -->
+  <link rel="icon" type="image/png" sizes="64x64" href="/favicon.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/assets/images/apple-touch-icon.png">
 
   <!-- Fonts & Styles -->
   <link rel="stylesheet" href="/assets/css/style.css">
@@ -120,15 +143,18 @@
           <li><a href="/tools/regex-tester.html">Regex Tester</a></li>
           <li><a href="/tools/diff-checker.html">Diff Checker</a></li>
           <li><a href="/tools/api-tester.html">API Tester</a></li>
+          <li><a href="/tools/json-to-types.html">JSON to TypeScript / Go</a></li>
         </ul>
       </div>
       <div class="footer-column">
         <h5>Utilities</h5>
         <ul>
-          <li><a href="/tools/url-encoder.html">URL Encoder</a></li>
-          <li><a href="/tools/url-decoder.html">URL Decoder</a></li>
+          <li><a href="/tools/epoch-converter.html">Unix Epoch Converter</a></li>
+          <li><a href="/tools/base64-tools.html">Base64 String & Image</a></li>
           <li><a href="/tools/cron-generator.html">Cron Generator</a></li>
           <li><a href="/tools/uuid-generator.html">UUID Generator</a></li>
+          <li><a href="/tools/url-encoder.html">URL Encoder</a></li>
+          <li><a href="/tools/url-decoder.html">URL Decoder</a></li>
           <li><a href="/tools/hash-generator.html">Hash Multi-Generator</a></li>
         </ul>
       </div>
