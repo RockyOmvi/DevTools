@@ -282,11 +282,10 @@ function build() {
   fs.writeFileSync(path.join(distDir, `${indexNowKey}.txt`), indexNowKey, 'utf8');
   console.log(`- Created: dist/${indexNowKey}.txt (IndexNow Key)`);
 
-  // Cloudflare _redirects
-  const redirectsTxt = `# Canonical Domain & HTTPS Enforcement
-http://devtoolhubs.com/* https://devtoolhubs.com/:splat 301!
-https://www.devtoolhubs.com/* https://devtoolhubs.com/:splat 301!
-http://www.devtoolhubs.com/* https://devtoolhubs.com/:splat 301!
+  // Cloudflare _redirects (Only relative paths allowed as source in Cloudflare Workers)
+  const redirectsTxt = `# Cloudflare Path Redirects
+/tools /tools/json-validator.html 302
+/tools/ /tools/json-validator.html 302
 `;
   fs.writeFileSync(path.join(distDir, '_redirects'), redirectsTxt, 'utf8');
   console.log('- Created: dist/_redirects');
